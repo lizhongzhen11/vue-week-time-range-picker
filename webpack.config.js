@@ -1,5 +1,4 @@
 const path = require("path");
-const webpack = require("webpack");
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 module.exports = {
@@ -16,6 +15,11 @@ module.exports = {
       {
         test: /\.vue$/,
         loader: 'vue-loader'
+      },
+      {
+        test: /\.js$/,
+        exclude: /node_modules|vue\/dist|vue-router\/|vue-loader\/|vue-hot-reload-api\//,
+        loader: 'babel-loader'
       },
       {
         test: /\.less$/,
