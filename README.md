@@ -5,6 +5,20 @@
 <vue-week-time-range-picker :hasHalfHour="true" :selectedData="selectedData" @selectTimeRange="selectTimeRange" />
 ```
 
+```js
+import vueWeekTimeRangePicker from 'vue-week-time-range-picker'
+export default {
+  components: {
+    vueWeekTimeRangePicker
+  },
+  methods: {
+    selectTimeRange (checked) {
+      console.log(checked)
+    }
+  }
+}
+```
+
 ## API
 
 - hasHalfHour: true | false (默认带半小时 | default with half-hour)

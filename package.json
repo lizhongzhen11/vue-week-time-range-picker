@@ -1,6 +1,6 @@
 {
   "name": "vue-week-time-range-picker",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "",
   "main": "build/vue-week-time-range-picker.min.js",
   "scripts": {
