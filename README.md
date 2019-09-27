@@ -17,3 +17,11 @@
     }
   ]
 - selectTimeRange: 接收选中的时间 | receive selected time
+
+## 图示
+
+1. hour
+<img src="./src/assets/hour.gif">
+
+2. half-hour
+<img src="./src/assets/halfhour.gif">
