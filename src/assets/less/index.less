@@ -1,0 +1,120 @@
+.week-time-range-picker {
+  position: relative;
+  display: inline-block;
+
+  .wtrp-schedule {
+    background: #598fe6;
+    width: 0;
+    height: 0;
+    position: fixed;
+    opacity: 0.6;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    -webkit-transition: all .4s ease;
+    -moz-transition: all .4s ease;
+    -ms-transition: all .4s ease;
+    transition: all .4s ease;
+  }
+
+  .wtrp-table {
+    background-color: transparent;
+    border-collapse: collapse;
+
+    .wtrp-byted-popover-wrapper {
+      text-align: left;
+      display: inline-block;
+
+      .transition-popover-enter-active, .transition-popover-appear {
+        opacity: 0;
+        animation: popoverTransitionIn .5s;
+      }
+
+      .transition-drop-leave-active {
+        animation: popoverTransitionOut .5s;
+      }
+
+      @keyframes popoverTransitionIn {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+
+      @keyframes popoverTransitionOut {
+        0% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
+      
+      .ant-tooltip {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        color: rgba(0, 0, 0, 0.65);
+        font-size: 14px;
+        font-variant: tabular-nums;
+        line-height: 1.5;
+        list-style: none;
+        font-feature-settings: 'tnum';
+        position: absolute;
+        z-index: 1060;
+        display: block;
+        max-width: 250px;
+        visibility: visible;
+      }
+
+      .ant-tooltip-placement-top {
+
+        .ant-tooltip-arrow {
+          left: 50%;
+          transform: translateX(-50%);
+          position: absolute;
+          display: block;
+          width: 13.07106781px;
+          height: 13.07106781px;
+          overflow: hidden;
+          background: transparent;
+          pointer-events: none;
+          bottom: -12.07106781px;
+        }
+
+        .ant-tooltip-arrow::before {
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          display: block;
+          width: 5px;
+          height: 5px;
+          margin: auto;
+          background-color: rgba(0, 0, 0, 0.75);
+          content: '';
+          pointer-events: auto;
+          box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.07);
+          transform: translateY(-6.53553391px) rotate(45deg);
+        }
+
+        .ant-tooltip-inner {
+          min-width: 30px;
+          min-height: 32px;
+          padding: 6px 8px;
+          color: #fff;
+          text-align: left;
+          text-decoration: none;
+          word-wrap: break-word;
+          background-color: rgba(0, 0, 0, 0.75);
+          border-radius: 4px;
+          -webkit-box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        }
+      }
+    }
+  }
+}
