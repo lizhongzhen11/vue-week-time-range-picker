@@ -39,3 +39,9 @@ export default {
 
 2. half-hour
 <img src="./src/assets/halfhour.gif">
+
+
+## 兼容性 | compatible
+|          | chrome |  edge  |
+|  ----    |  ----  |  ----  |
+| version  |   77   |   44   |
