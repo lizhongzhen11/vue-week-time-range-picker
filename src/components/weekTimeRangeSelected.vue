@@ -53,14 +53,6 @@ export default {
       })
       return cacheChecked
     },
-    /**
-     * @desc 对被选中的时间转换格式进行展示
-     */
-    formmat () {
-      return function (first, end, len, index) {
-        return `${first > 9 ? `${first}:00` : `0${first}:00`}~${end > 9 ? `${end}:00` : `0${end}:00`}${len > 1 && index !== len - 1 ? '、' : ''}`
-      }
-    }
   },
   methods: {
     clear () {
@@ -126,7 +118,10 @@ export default {
         }
       })
       mergeTimes.forEach((item, index) => {
-        const hour = +item.slice(-1)[0].substring(0, 2)
+        if (!item.slice(-1)[0]) { // 连续快速点击，然后清空再重复，可能会出现 Cannot read property 'substring' of undefined"
+          return
+        }
+        const hour = +(item.slice(-1)[0].substring(0, 2))
         if (item.slice(-1)[0].substring(3) === '30') {
           hour > 8 ? item.push(`${hour + 1}:00`) : item.push(`0${hour + 1}:00`)
         } else {

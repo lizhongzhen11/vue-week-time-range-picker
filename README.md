@@ -45,3 +45,7 @@ export default {
 |          | chrome |  edge  |
 |  ----    |  ----  |  ----  |
 | version  |   77   |   44   |
+
+### 注意
+1. 测试发现，edge浏览器中会受margin和padding影响，从而导致框选有偏差，建议不要对其父元素使用margin和padding。
+2. 测试发现，直接引入时，左侧偏移位置有出入，目前修复，待反馈。

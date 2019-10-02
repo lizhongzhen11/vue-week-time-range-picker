@@ -222,30 +222,6 @@ export default {
       for (let i = 0; i < dayRange.length; i++) {
         let {has, idenIndex} = this.isHasStart(dayRange[i])
         handleCheckedData({cacheChecked, hasStart, has, idenIndex, iden: dayRange[i], timeRange})
-        // let temp = {
-        //   iden: '',
-        //   times: []
-        // }
-        // temp.iden = dayRange[i]
-        // temp.times = []
-        // console.log(temp)
-        // for (let j = 0; j < timeRange.length; j++) {
-        //   let index = !!has && cacheChecked[idenIndex].times.indexOf(timeRange[j])
-        //   if (!!hasStart) {
-        //     !!has && index >= 0 && cacheChecked[idenIndex].times.splice(index, 1)
-        //     if (!!has && idenIndex >= 0 && cacheChecked[idenIndex].times.length === 0 && cacheChecked.splice(idenIndex, 1)) {
-        //       break
-        //     }
-        //     continue
-        //   } else {
-        //     if (index === -1) {
-        //       cacheChecked[idenIndex].times.push(timeRange[j])
-        //       continue
-        //     }
-        //     temp.times.push(timeRange[j])
-        //   }
-        // }
-        // !hasStart && !has && cacheChecked.push(temp)
       }
     },
   },

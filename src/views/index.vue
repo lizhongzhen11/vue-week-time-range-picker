@@ -156,12 +156,11 @@ export default {
           }
         }
         this.isFocus = true
-        this.tipPosition(iden, tdIndex, hour, value)
+        this.tipPosition(iden, hour, value)
       }
     },
     /**
      * @param {string} iden 当前td所在的星期几
-     * @param {string} tdIndex 当前td位于该tr的位置
      * @desc 计算提示框的位置
      *       popperLeft: 计算提示框距table左侧偏移值，
      *       popperLeft = 该td距离 week-td 右侧的水平距离 - ? (根据带不带半小时来计算)
@@ -171,26 +170,26 @@ export default {
      *       bug修复：
      *          1.当选中超过7个间隔的时间段后，该星期会占两行，高度由21增加为42，所以需要遍历所选时间数据，确定一共占几行
      */
-    tipPosition (iden, tdIndex, time, value) {
+    tipPosition (iden, time, value) {
       let cacheChecked = this.cacheChecked
       const hour = ~~time.substring(0, 2)
       const minute = ~~time.substring(3)
       this.currentVal = value
       const tableHeight = this.$refs.table.clientHeight
-      this.popperTop = (~~iden + 1) * 20 + 40 - tableHeight - 55
+      this.popperTop = (~~iden + 1) * 20 + 40 - tableHeight - 60
       // 只有小时
       if (!this.hasHalfHour) {
         this.nextTime = hour + 1 >= 10 ? `${hour +1 }:00` : `0${hour + 1}:00`
-        this.popperLeft = (hour - 2) * 16
+        this.popperLeft = (hour - 1) * 16 + 13
         return
       }
       if (minute === 30) {
         this.nextTime = hour + 1 >= 10 ? `${hour +1 }:00` : `0${hour + 1}:00`
-        this.popperLeft = (hour * 2 - 1) * 16
+        this.popperLeft = (hour * 2) * 16 + 13
         return
       }
       this.nextTime = time.substring(0, 2) + ':30'
-      this.popperLeft = (hour * 2 - 2) * 16
+      this.popperLeft = (hour * 2 - 1) * 16 + 13
     },
     /**
      * @desc 控制是否移出table可选时间范围
@@ -227,6 +226,7 @@ export default {
 </script>
 
 <style lang="less">
+@import '../assets/less/base.less';
 @import '../assets/less/index.less';
 @import '../assets/less/time-range-picker-common.less';
 </style>
