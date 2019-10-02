@@ -35,7 +35,7 @@ export default {
     },
     hasHalfHour: { // 是否启用半小时
       type: Boolean,
-      default: true
+      default: false
     }
   },
   watch: {

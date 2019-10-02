@@ -11,7 +11,7 @@
           <span class="tip-text">{{item.week}}：</span>
           <span class="wtrp-flex-1">
             <span v-for="(time, timeIndex) in item.mergeTimes" :key="timeIndex">
-              {{`${time[0]}~${time[time.length - 1]}`}}
+              {{hasHalfHour ? `${time[0]}~${time[time.length - 1]}` : `${time[0]}~` + fromat(time[time.length - 1])}}
             </span>
           </span>
         </p>
@@ -128,6 +128,13 @@ export default {
           hour > 8 ? item.push(`${hour}:30`) : item.push(`0${hour}:30`)
         }
       })
+    },
+    /**
+     * @description 如果是只有小时的话，需要处理下
+     */
+    fromat (last) {
+      const hour = ~~last.substring(0, 2) + 1
+      return hour > 9 ? `${hour}:00` : `0${hour}:00`
     }
   }
 }
